@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  neovim:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: nvd
+    tty: true
+    volumes:
+      # openai_key
+      - ./.zshrc:/home/nvd/.zshrc
+      # openai_key
+      - ./.openai_key.zsh:/home/nvd/.openai_key.zsh
+      # code to be edited
+      - ./workspace:/home/nvd/workspace
+    # (option)
+    # ports:
+    #   - "8000:8000"
